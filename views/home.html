@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+     <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<!-- Header Start -->
+<div class="wrapper">
+<div class="header">
+    <div class="header-title">
+        <h1><a href="/">{{data.header.logo.title}}</a></h1>
+        <h3>{{data.header.logo.name}}</h3>
+    </div>
+    <div class="header-menu">
+        {% set header_menu = data.header.menu %}
+        <ul>
+            {% for _header_menu in header_menu %}
+                <li>
+                    <a href="{{_header_menu.link}}">{{_header_menu.title}}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<!-- Header End -->
+<!-- Home Section Start -->
+<div class="section">
+    <div class="left">
+        {% set entry_article_abstract = data.article.abstract %}
+            {% for _entry_article_abstract in entry_article_abstract -%}
+                <div class="loop-content">
+                    <div class="article-title">
+                        <h1><a href="/blog/{{_entry_article_abstract.uid}}">{{ _entry_article_abstract.blog_content.title }}</a></h1>
+                        <i>{{ _entry_article_abstract.blog_content.name_date}}{{data.created_at}}</i>
+                    </div>
+
+                    <div class="image">
+                        <a href="/blog/{{_entry_article_abstract.uid}}"><img src="{{_entry_article_abstract.blog_content.image.url}}" alt="Image" /> </a>
+                    </div>
+
+                    <div class="containt">
+                        {{_entry_article_abstract.blog_content.abstract}}
+                    </div>
+                    <div class="button">
+                        <a href="/blog/{{_entry_article_abstract.uid}}"><img style="width: 96px" src="{{data.article.button.url}}" alt="Image" />
+                        </a>
+                    </div>
+                </div>
+
+        {%- endfor %}
+    </div>
+
+    <div class="right">
+
+        <div class="sidebar-sec">
+    {% for sidetitle in data.side_bar %}
+    <div class="sideloop">
+        <div class="nav-title">
+            <h2>{{sidetitle.title}}</h2>
+        </div>
+
+
+        <div class="nav-link">
+            <ul>
+                {% for sidenav in sidetitle.menu %}
+                    <li><a href="{{sidenav.link}}">{{sidenav.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        </div>
+        {% endfor %}
+</div>
+
+    </div>
+    </div>
+<!-- Home Section End -->
+
+<div class="footer">
+    <footer>
+        {{data.footer.name}}
+    </footer>
+</div>
+</div>
+</body>
+</html>

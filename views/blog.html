@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Post</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<div class="wrapper">
+<!-- Header Start -->
+<div class="header">
+    <div class="header-title">
+        <h1><a href="/">{{data.header.logo.title}}</a></h1>
+        <h3>{{data.header.logo.name}}</h3>
+    </div>
+    <div class="header-menu">
+        {% set header_menu = data.header.menu %}
+        <ul>
+            {% for _header_menu in header_menu %}
+                <li>
+                    <a href="{{_header_menu.link}}">{{_header_menu.title}}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<!-- Header End -->
+<!-- Home Section Start -->
+<div class="section">
+<div class="left">
+        <div class="loop-content">
+            <div class="article-title">
+
+                <h1>{{data.blog_content.title}}</h1>
+                <i>{{data.blog_content.name_date}}{{data.created_at}}</i>
+            </div>
+
+            <div class="image">
+                <img src="{{data.blog_content.image.url}}" alt="Image" />
+            </div>
+
+            <div class="containt">
+                {{data.blog_content.content | safe}}
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="right">
+
+        <div class="sidebar-sec">
+    {% for sidetitle in data.side_bar %}
+    <div class="sideloop">
+        <div class="nav-title">
+            <h2>{{sidetitle.title}}</h2>
+        </div>
+
+
+        <div class="nav-link">
+            <ul>
+                {% for sidenav in sidetitle.menu %}
+                    <li><a href="{{sidenav.link}}">{{sidenav.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        </div>
+        {% endfor %}
+</div>
+
+    </div>
+    </div>
+<!-- Home Section End -->
+
+<div class="footer">
+    <footer>
+        {{data.footer.name}}
+    </footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+html,body{margin: 0;padding: 0;}
+
+.wrapper {
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+}
+.header {
+    padding: 2px;
+    margin-bottom: 10px;
+}
+
+.header-title {
+    color: red;
+    padding: 1px;
+    margin: 5px auto 30px auto;
+    max-width: 960px;
+}
+.header-title a,.header-title a:hover{
+    color: red;
+    text-decoration: none;
+}
+.header-title h1  {
+    padding: 0px;
+    margin-bottom: 0px;
+}
+.header-title h3 {
+    padding: 3px;
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+.header-menu {
+    background-color: #000;
+    padding: 20px;
+    clear: both;
+}
+.header-menu ul{
+    max-width: 960px;
+    margin: 0 auto;    
+}
+
+.header-menu ul li{
+    display: inline-block;
+    padding: 0 30px 0 0;
+
+}
+.header-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.section{
+    padding: 2px;
+    margin: 0 auto;
+    overflow: auto;
+    display: block;
+    max-width: 960px;
+}
+
+.left {
+    width: 65%;
+    float: left;
+    padding: 2px;
+    margin: 5px;
+}
+
+.loop-content:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.article-title {
+    padding: 2px;
+    margin-bottom: 15px;
+}
+.article-title a {
+    text-decoration: none;
+    color: black;
+}
+.article-title h1{
+    padding: 2px;
+    margin-bottom: 0px;
+}
+.article-title i {
+    padding: 3px;
+    margin-top: 0px;
+}
+.image {
+    padding: 2px;
+    /*margin-right: 10px;*/
+    margin: 0 20px 2px 5px;
+    float: left;
+    width: 300px;
+}
+.image img{
+    width: 100%;
+}
+.containt{
+    padding: 0px;
+    margin: 5px;
+}
+.right {
+    width: 30%;
+    float: right;
+    padding: 2px;
+    margin: 5px;
+}
+.nav-title {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-bottom: solid 1px #5A5353;
+}
+.nav-title h2{
+    margin-bottom: 0;
+}
+.nav-link ul li{
+    padding: 2px;
+    margin: 2px;
+    list-style-type: square;
+}
+.nav-link ul li a {
+    /*color: #000;*/
+    text-decoration: none;
+}
+.sidebar-sec{
+    margin: 40px 0 0 0;
+}
+.sidebar-sec:first-child{
+    margin:0;
+}
+footer {
+    background-color: black;
+    color: white;
+    clear: both;
+    text-align: center;
+    padding: 10px;
+}
