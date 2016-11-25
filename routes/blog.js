@@ -1,31 +1,23 @@
+'use strict';
 var express = require('express');
 var nunjucks = require('nunjucks');
 var router = express.Router();
-var Contentstack = require('contentstack');
+var config = require('./init');
+function blogdata(id, callback) {
+    var id = id;
+    var Stack = config();
+    var Query = Stack.ContentType('blog_post').Entry(id);
 
-/* GET home page. */
-router.get('/:id', function (req, res) {
-    try {
+    Query
+        .fetch()
+        .then(function success(entry) {
+            var myEntry = entry.toJSON();
+            var data = {data: myEntry}
+            callback(data);
+            // res.render('blog.html', data);
 
-        var Stack = req.app.locals.Stack;
-        var Query = Stack.ContentType('blog_post').Entry(req.params.id);
+        }, function error(err) {
 
-        Query
-            .fetch()
-            .then(function success(entry) {
-                var myEntry = entry.toJSON();
-                var data = {data: myEntry}
-                res.render('blog.html', data);
-
-            }, function error(err) {
-                res.send(err)
-            });
-
-
-    } catch (e) {
-        console.log("Error ", e)
-    }
-
-});
-
-module.exports = router;
+        });
+}
+module.exports = blogdata;
