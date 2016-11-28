@@ -2,7 +2,6 @@
 var express = require('express');
 var router = express.Router();
 var Contentstack = require('contentstack');
-var Stack = require('./config/init.js');
 var homedata = require('./routes/home.js');
 var blogdata = require('./routes/blog.js');
 var deasync = require('deasync');
